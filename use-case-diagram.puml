@@ -1,0 +1,35 @@
+@startuml
+left to right direction
+
+actor "Conference Author" as Author
+actor "Track Chair" as Chair
+actor "Reviewer" as Reviewer
+actor "Conference Participant" as Participant
+
+rectangle "Virtual Technical Conference Platform" {
+
+    usecase "UC-01\nSubmit Manuscript" as UC1
+    usecase "UC-02\nAnonymize Manuscript" as UC2
+    usecase "UC-03\nAssign Manuscript to\nReviewer Pool" as UC3
+    usecase "UC-04\nReview Manuscript" as UC4
+    usecase "UC-05\nGenerate Conference\nSchedule" as UC5
+    usecase "UC-06\nResolve Room and\nSpeaker Constraints" as UC6
+    usecase "UC-07\nView Q&A Queue" as UC7
+    usecase "UC-08\nUpvote Question" as UC8
+
+    Author --> UC1
+
+    Chair --> UC3
+    Chair --> UC5
+
+    Reviewer --> UC4
+
+    Participant --> UC7
+    Participant --> UC8
+
+    UC1 ..> UC2 : <<include>>
+    UC5 ..> UC6 : <<include>>
+    UC8 ..> UC7 : <<extend>>
+}
+
+@enduml
