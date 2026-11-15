@@ -1,2 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mxfile host="app.diagrams.net" />
+<mxfile host="app.diagrams.net">
+  <diagram name="Component Diagram" id="componentDiagram">
+    <mxGraphModel dx="721" dy="512" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" scale="1" container="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <!-- User Interface Component -->
+        <mxCell id="uiComponent" value="<c<component>User Interface</component>>" style="shape=rectangular;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#B3E5FC;strokeColor=#0D47A1;strokeWidth=2;fontColor=#0D47A1;fontSize=12;rotation=0;", vertex="1" parent="1">
+          <mxGeometry x="20" y="20" width="120" height="60" as="geometry" />
+        </mxCell>
+        <!-- Order Manager Component -->
+        <mxCell id="orderComponent" value="<c<component>Order Manager</component>>" style="shape=rectangular;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#C8E6C9;strokeColor=#2E7D32;strokeWidth=2;fontColor=#2E7D32;fontSize=12;rotation=0;", vertex="1" parent="1">
+          <mxGeometry x="200" y="20" width="120" height="60" as="geometry" />
+        </mxCell>
+        <!-- Payment Service Component -->
+        <mxCell id="paymentComponent" value="<c<component>Payment Service</component>>" style="shape=rectangular;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#FFCDD2;strokeColor=#C62828;strokeWidth=2;fontColor=#C62828;fontSize=12;rotation=0;", vertex="1" parent="1">
+          <mxGeometry x="400" y="20" width="120" height="60" as="geometry" />
+        </mxCell>
+        <!-- Receipt Printer Component -->
+        <mxCell id="printerComponent" value="<c<component>Receipt Printer</component>>" style="shape=rectangular;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#FFE0B2;strokeColor=#F57F17;strokeWidth=2;fontColor=#F57F17;fontSize=12;rotation=0;", vertex="1" parent="1">
+          <mxGeometry x="20" y="120" width="120" height="60" as="geometry" />
+        </mxCell>
+        <!-- Database Component -->
+        <mxCell id="databaseComponent" value="<c<component>Database</component>>" style="shape=rectangular;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#E8EAF6;strokeColor=#3F51B5;strokeWidth=2;fontColor=#3F51B5;fontSize=12;rotation=0;", vertex="1" parent="1">
+          <mxGeometry x="400" y="120" width="120" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Interfaces -->
+        <!-- UI: Order Submission provided interface -->
+        <mxCell id="uiProvided" value="<interface>orderSubmission</interface>" style="ellipse;whiteSpace=wrap;html=1;aspect=fill;fillColor=#B3E5FC;strokeColor=#0D47A1;fontColor=#0D47A1;fontSize=10;", parent="1">
+          <mxGeometry x="80" y="50" width="80" height="20" as="geometry" />
+        </mxCell>
+        <!-- Order Manager: Order Submission required interface -->
+        <mxCell id="orderRequired" value="<interface>orderSubmission</interface>" style="ellipse;whiteSpace=wrap;html=1;aspect=fill;fillColor=#C8E6C9;strokeColor=#2E7D32;fontColor=#2E7D32;fontSize=10;", parent="1">
+          <mxGeometry x="260" y="50" width="80" height="20" as="geometry" />
+        </mxCell>
+        <!-- Order Manager: Payment Request provided interface -->
+        <mxCell id="orderPaymentProvided" value="<interface>paymentRequest</interface>" style="ellipse;whiteSpace=wrap;html=1;aspect=fill;fillColor=#C8E6C9;strokeColor=#2E7D32;fontColor=#2E7D32;fontSize=10;", parent="1">
+          <mxGeometry x="260" y="110" width="80" height="20" as="geometry" />
+        </mxCell>
+        <!-- Payment Service: Payment Request required interface -->
+        <mxCell id="paymentRequired" value="<interface>paymentRequest</interface>" style="ellipse;whiteSpace=wrap;html=1;aspect=fill;fillColor=#FFCDD2;strokeColor=#C62828;fontColor=#C62828;fontSize=10;", parent="1">
+          <mxGeometry x="460" y="110" width="80" height="20" as="geometry" />
+        </mxCell>
+        <!-- Order Manager: Receipt Generation provided interface -->
+        <mxCell id="orderPrinterProvided" value="<interface>receiptGeneration</interface>" style="ellipse;whiteSpace=wrap;html=1;aspect=fill;fillColor=#C8E6C9;strokeColor=#2E7D32;fontColor=#2E7D32;fontSize=10;", parent="1">
+          <mxGeometry x="260" y="170" width="80" height="20" as="geometry" />
+        </mxCell>
+        <!-- Receipt Printer: Receipt Generation required interface -->
+        <mxCell id="printerRequired" value="<interface>receiptGeneration</interface>" style="ellipse;whiteSpace=wrap;html=1;aspect=fill;fillColor=#FFE0B2;strokeColor=#F57F17;fontColor=#F57F17;fontSize=10;", parent="1">
+          <mxGeometry x="80" y="170" width="80" height="20" as="geometry" />
+        </mxCell>
+        <!-- Order Manager: Data Access provided interface -->
+        <mxCell id="orderDbProvided" value="<interface>dataAccess</interface>" style="ellipse;whiteSpace=wrap;html=1;aspect=fill;fillColor=#C8E6C9;strokeColor=#2E7D32;fontColor=#2E7D32;fontSize=10;", parent="1">
+          <mxGeometry x="260" y="230" width="80" height="20" as="geometry" />
+        </mxCell>
+        <!-- Database: Data Access required interface -->
+        <mxCell id="dbRequired" value="<interface>dataAccess</interface>" style="ellipse;whiteSpace=wrap;html=1;aspect=fill;fillColor=#E8EAF6;strokeColor=#3F51B5;fontColor=#3F51B5;fontSize=10;", parent="1">
+          <mxGeometry x="460" y="230" width="80" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Connectors -->
+        <!-- UI -> Order Manager: Order Submission -->
+        <mxCell id="uiToOrder" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#0D47A1;strokeWidth=2;jettySize=auto;html=1;", edge="1" source="uiProvided" target="orderRequired" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Order Manager -> Payment Service: Payment Request -->
+        <mxCell id="orderToPayment" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#C62828;strokeWidth=2;jettySize=auto;html=1;", edge="1" source="orderPaymentProvided" target="paymentRequired" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Order Manager -> Receipt Printer: Receipt Generation -->
+        <mxCell id="orderToPrinter" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#F57F17;strokeWidth=2;jettySize=auto;html=1;", edge="1" source="orderPrinterProvided" target="printerRequired" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Order Manager -> Database: Data Access -->
+        <mxCell id="orderToDb" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#3F51B5;strokeWidth=2;jettySize=auto;html=1;", edge="1" source="orderDbProvided" target="dbRequired" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
