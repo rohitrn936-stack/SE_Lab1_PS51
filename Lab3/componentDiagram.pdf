@@ -1,1 +1,23 @@
-componentDiagram.pdf
+UML Component Diagram for Self-Service Coffee Kiosk System
+
+Components:
+1. User Interface - Handles touchscreen interactions and user input
+2. Order Manager - Processes orders, manages order flow
+3. Payment Service - Handles credit card payment processing
+4. Receipt Printer - Generates and prints receipts
+5. Database - Stores menu data, pricing, and order information
+
+Interfaces:
+- User Interface → Order Manager: orderSubmission (provided)
+- Order Manager → Payment Service: paymentRequest (provided)
+- Order Manager → Receipt Printer: receiptGeneration (provided)
+- Order Manager → Database: dataAccess (provided)
+
+Data Flow:
+- User selects coffee type and size via touchscreen
+- Order submitted to Order Manager
+- Order Manager processes order and requests payment
+- Payment Service processes credit card payment
+- Order Manager requests receipt generation
+- Receipt Printer prints receipt
+- Order Manager queries Database for menu/pricing information

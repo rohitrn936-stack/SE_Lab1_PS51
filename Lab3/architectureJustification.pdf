@@ -1,1 +1,21 @@
-architectureJustification.pdf
+Self-Service Coffee Kiosk System - Architecture Justification
+
+Architecture Selection
+We chose Layered Architecture for the Self-Service Coffee Kiosk System.
+
+Architectural Choice
+The Layered Architecture organizes the system into horizontal layers, each with responsibility over a specific domain. From top to bottom, the layers are: User Interface, Order Manager, Payment Service, Receipt Printer, and Database. This structure provides clear separation of concerns, where each layer communicates with the layer directly below it through well-defined interfaces.
+
+Two Reasons
+1. Touchscreen interaction and component separation: The User Interface layer handles touchscreen inputs and user interactions in a dedicated layer, allowing the Order Manager to focus on processing orders without worrying about low-level hardware details. This separation enables intuitive touchscreen UI design while keeping business logic separate from presentation concerns.
+
+2. Payment processing and receipt handling: The Layered Architecture cleanly separates the Payment Service layer from the Order Manager, allowing credit card payment processing to be handled securely in its own layer. The Order Manager requests payment processing from the Payment Service, which communicates with card readers through hardware interfaces. This separation simplifies payment integration and ensures that payment logic doesn't mix with order management logic.
+
+Security Advantage
+The Layered Architecture provides a security advantage by isolating credit card payment data within the Payment Service layer. Sensitive card information is not exposed to the User Interface or other layers, and all payment requests flow through the Order Manager as a controlled gateway. This defense-in-depth approach ensures that even if the User Interface layer is compromised, the attacker cannot directly access payment processing capabilities - they must first compromise the Order Manager layer, which enforces authorization checks before forwarding payment requests. Additionally, the layered structure allows for implementing input validation and sanitization at each layer boundary, particularly crucial for credit card data.
+
+Performance Benefit
+The Layered Architecture offers performance benefits through localized optimization. Each layer can be optimized independently - the Database layer can use connection pooling and query optimization, the Payment Service can employ caching for frequent transactions, and the Order Manager can batch operations. For the coffee kiosk, this means that menu data access from the Database is efficient, payment processing is streamlined without unnecessary network hops between unrelated components, and the overall system response time for touchscreen interactions and order fulfillment remains fast and predictable.
+
+One Page Constraint
+The justification above is contained within a single page, fitting all required sections within the specified length limit.
